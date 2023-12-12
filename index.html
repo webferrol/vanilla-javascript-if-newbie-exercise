@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>JavaScript - Condicionales</title>
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<!--
+	<link rel="stylesheet" type="text/css" href="css/outline.css">
+	-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+</head>
+<body>
+<main id="contenedor">
+	<header>
+		<h1>Condicionales</h1>
+	</header>
+	
+		
+		<article class="clear">
+			
+			<h2>Declaraciones condicionales</h2>
+			<div>
+				
+				<figure class="figure if">
+					<img class="images if" src="images/if.png" alt="Diagrama de una declaración if">
+					<figcaption>Diagrama de una declaración if</figcaption>
+				</figure>
+				<p>A menudo, cuando escribe código, desea realizar diferentes acciones para tomar diferentes decisiones.</p>
+				<p>Puede usar declaraciones condicionales en su código para hacer esto. A continuación puede ver un condicional en <mark>JavaScript</mark>.</p>
+				<pre title="Código en JavaScript">
+if (condición) { // &lt;- true
+
+} else { // &lt;- false
+
+}
+				</pre>
+				<div>En JavaScript tenemos las siguientes declaraciones condicionales:
+
+					<ul>
+						<li>Utilice <strong>if</strong> para especificar un bloque de código para que sea ejecutado siempre y cuando si la condición es verdadera (<strong>true</strong>)</li>
+						<li>Use <strong>else</strong> para especificar un bloque de código que se ejecutará, si la misma condición es falsa</li>
+						<li>Use <strong>else if</strong> para especificar una nueva condición para probar, si la primera condición es falsa</li>
+						<li>Use <strong>switch</strong> (interruptor) para especificar muchos bloques alternativos de código para ejecutar</li>
+					</ul>
+				</div>
+				Información tomada de <a target="_blank" href="https://www.w3schools.com/js/js_if_else.asp">w3schools</a>
+			</div>
+		</article>
+
+		<article id="texto">
+			<h2>Ejercicios</h2>
+			<section>
+				<h3>Bloque 1</h3>
+				<ol>
+					<li>Escriba un programa que pida dos números enteros y que calcule su división, escribiendo si la división es exacta o no.</li>
+				</ol>
+				Para pasar un número entero existe una función que es parseInt. Ejemplo:
+<pre>
+	<code>
+var num="3";
+var numEntero=parseInt(num);
+    </code>
+</pre>
+				<p>Para pasar si la división es exacta comprobamos si su resto es cero. Para saber esto existe el operador módulo (%).</p>
+<pre>
+	<code>
+var num1=1,num2=3,resto;
+var resto=num1%num2; //obtenemos el resto
+    </code>
+</pre>
+				<form>
+					<div>Dividendo uno <input type="text" name="op1"></div>
+					<div>Divisor dos <input type="text" name="op2"></div>
+				 	<div><input class="boton" id="b1" type="submit" value="Calcular"></div>
+				</form>
+			</section>
+			<section>
+				<h3>Bloque 2</h3>
+				<ol>
+					<li>Mejore el programa anterior haciendo que tenga en cuenta que no se puede dividir por cero.
+					</li>
+					<li>
+						Escriba un programa que pida el año actual y un año cualquiera y que escriba cuántos años han pasado desde ese año o cuántos años faltan para llegar a ese año.
+						<div>
+							<div>Año actual <input type="text" name="a1"></div>
+							<div>Cualquier año <input type="text" name="op2"></div>
+						 	<div><input class="boton" id="b2" type="button" value="Calcular"></div>
+						</div>
+					</li>
+					<li>
+						Escriba un programa que pida tres números y que escriba si son los tres iguales, si hay dos iguales o si son los tres distintos.
+						<div>
+							<div>Número 1 <input type="text" name="n1"></div>
+							<div>Número 2 <input type="text" name="n2"></div>
+							<div>Número 3 <input type="text" name="n3"></div>
+						 	<div><input class="boton" id="b3" type="button" value="Comprobar"></div>
+						</div>
+					</li>
+				</ol>
+			</section>
+			<section>
+				<h3>Bloque 3</h3>
+				<ol>
+					<li>Escriba un programa que pregunte primero si se quiere calcular el área de un triángulo o la de un círculo. Si se contesta que se quiere calcular el área de un triángulo (escribiendo T o t), el programa tiene que pedir entonces la base y la altura y escribir el área. Si se contesta que se quiere calcular el área de un círculo (escribiendo C o c), el programa tiene que pedir entonces el radio y escribir el área. <a href="#" class="boton" id="b4">Comenzar programa</a></li>
+				</ol>
+			</section>
+		</article>
+	
+</main>
+</body>
+</html>
