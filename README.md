@@ -4,6 +4,8 @@
 >Descarga o clona este repositorio y realiza las instrucciones del fichero __index.html__
 
 
+[![Ejercicios básicos de if](./screeshots/condicionales.png)](https://webferrol.github.io/vanilla-javascript-if-newbie-exercise/)
+
 >[!NOTE]
 >Al final de este ejercicio tendrás que comprender los siguientes conceptos:
 
