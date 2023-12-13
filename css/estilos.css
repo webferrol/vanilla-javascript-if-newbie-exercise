@@ -30,6 +30,12 @@ article {
 }
 
 
+.hadouken {
+	max-width: 600px;
+	object-fit:  cover;
+}
+
+
 .enlace{
 	color:white;
 	border-radius: 5px;
