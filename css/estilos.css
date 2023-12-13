@@ -10,6 +10,9 @@ h1,h2{
 	background-color: #BDCED6;
 }
 
+img {
+	width: 100%;
+}
 
 code{
 	
@@ -24,6 +27,12 @@ article {
 }
 .rojo{
 	background: red;
+}
+
+
+.hadouken {
+	max-width: 600px;
+	object-fit:  cover;
 }
 
 
@@ -111,6 +120,7 @@ textarea,input[type="text"]{
 
 .figure {
 	box-shadow: 0 0 0 1px black;
+	width: fit-content;
 	& img {
 		margin: auto;
 		display: block;
