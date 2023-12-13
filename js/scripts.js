@@ -4,11 +4,12 @@ function calcularDivision() {
     
     if (!isNaN(dividendo) && !isNaN(divisor)) {
         if (divisor !== 0) {
+            let resultadoDivision = dividendo / divisor
             let resto = dividendo % divisor
             if (resto === 0) {
-                alert("La división es exacta.")
+                alert(`El resultado de la división es ${resultadoDivision} y esta es exacta`)
             } else {
-                alert("La división no es exacta.")
+                alert(`El resultado de la división es ${resultadoDivision} y esta no es exacta`)
             }
         } else {
             alert("No se puede dividir por cero.")
