@@ -90,4 +90,25 @@ function calcularArea() {
 
 document.querySelector('#b4').addEventListener('click', calcularArea)
 
+function evaluarNota() {
+    let nota = parseFloat(prompt("Ingresa tu nota (formato decimal):"))
+
+    if (!isNaN(nota) && nota >= 0 && nota <= 10) {
+        if (nota < 3) {
+            alert("No llegas");
+        } else if (nota < 5) {
+            alert("Casi");
+        } else if (nota >= 5 && nota <= 7) {
+            alert("Bien");
+        } else {
+            alert("Very Well");
+        }
+    } else {
+        alert("Por favor, ingresa una nota numérica válida entre 0 y 10.");
+    }
+}
+
+evaluarNota();
+
+
 
