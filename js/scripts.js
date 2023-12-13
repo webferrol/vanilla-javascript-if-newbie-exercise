@@ -6,20 +6,20 @@ function calcularDivision() {
     let dividendo = parseInt(document.querySelector('input[name="op1"]').value)
     let divisor = parseInt(document.querySelector('input[name="op2"]').value)
     
-    if (!isNaN(dividendo) && !isNaN(divisor)) {
-        if (divisor !== 0) {
-            let resultadoDivision = dividendo / divisor
-            let resto = dividendo % divisor
-            if (resto === 0) {
-                alert(`El resultado de la división es ${resultadoDivision} y esta es exacta`)
-            } else {
-                alert(`El resultado de la división es ${resultadoDivision} y esta no es exacta`)
-            }
+    if (isNaN(dividendo) || isNaN(divisor)) {
+        alert("Por favor, ingresa números enteros válidos.")
+        return
+    }
+    if (divisor !== 0) {
+        let resultadoDivision = dividendo / divisor
+        let resto = dividendo % divisor
+        if (resto === 0) {
+            alert(`El resultado de la división es ${resultadoDivision} y esta es exacta`)
         } else {
-            alert("No se puede dividir por cero.")
+            alert(`El resultado de la división es ${resultadoDivision} y esta no es exacta`)
         }
     } else {
-        alert("Por favor, ingresa números enteros válidos.")
+        alert("No se puede dividir por cero.")
     }
 }
 
@@ -29,16 +29,17 @@ function calcularAnhos() {
     let anhoActual = parseInt(document.querySelector('input[name="a1"]').value)
     let anhoCualquiera = parseInt(document.querySelector('#anhoCualquiera').value)
     
-    if (!isNaN(anhoActual) && !isNaN(anhoCualquiera)) {
-        if (anhoCualquiera > anhoActual) {
-            alert("Faltan " + (anhoCualquiera - anhoActual) + " años para llegar a ese año.")
-        } else if (anhoCualquiera < anhoActual) {
-            alert("Han pasado " + (anhoActual - anhoCualquiera) + " años desde ese año.")
-        } else {
-            alert("Los años son iguales.")
-        }
-    } else {
+    if (isNaN(anhoActual) || isNaN(anhoCualquiera)) {
         alert("Por favor, ingresa años válidos.")
+        return
+    }
+
+    if (anhoCualquiera > anhoActual) {
+        alert("Faltan " + (anhoCualquiera - anhoActual) + " años para llegar a ese año.")
+    } else if (anhoCualquiera < anhoActual) {
+        alert("Han pasado " + (anhoActual - anhoCualquiera) + " años desde ese año.")
+    } else {
+        alert("Los años son iguales.")
     }
 }
 
@@ -49,30 +50,26 @@ function comprobarNumeros() {
     let str2 = document.querySelector('input[name="n2"]').value
     let str3 = document.querySelector('input[name="n3"]').value
 
-    if (str1 && str2 && str3) {
-        let numero1 = Number(str1)
-        let numero2 = Number(str2)
-        let numero3 = Number(str3)
-    
-        console.log(typeof(numero1))
-    
-        console.log(numero1, numero2, numero3, typeof(numero1), typeof(numero2), typeof(numero3))
-        
-        if (!isNaN(numero1) && !isNaN(numero2) && !isNaN(numero3)) {
-            if (numero1 === numero2 && numero1 === numero3) {
-                alert("Los tres números son iguales.")
-            } else if (numero1 === numero2 || numero1 === numero3 || numero2 === numero3) {
-                alert("Hay dos números iguales.")
-            } else {
-                alert("Los tres números son distintos.")
-            }
-        } else {
-            alert("Por favor, ingresa valores numéricos válidos en los tres campos.")
-        }
-    } else {
+    if (!str1 || !str2 || !str3) {
         alert("Por favor, Rellena los tres campos de texto")
+        return
     }
 
+    let numero1 = Number(str1)
+    let numero2 = Number(str2)
+    let numero3 = Number(str3)
+    
+    if (!isNaN(numero1) && !isNaN(numero2) && !isNaN(numero3)) {
+        if (numero1 === numero2 && numero1 === numero3) {
+            alert("Los tres números son iguales.")
+        } else if (numero1 === numero2 || numero1 === numero3 || numero2 === numero3) {
+            alert("Hay dos números iguales.")
+        } else {
+            alert("Los tres números son distintos.")
+        }
+    } else {
+        alert("Por favor, ingresa valores numéricos válidos en los tres campos.")
+    }
 }
 
 document.querySelector('#b3').addEventListener('click', comprobarNumeros)
@@ -80,6 +77,11 @@ document.querySelector('#b3').addEventListener('click', comprobarNumeros)
 
 function calcularArea() {
     let eleccion = prompt("¿Quieres calcular el área de un triángulo (T) o un círculo (C)?").toLowerCase()
+
+    if(eleccion !== 't' && eleccion !== 'c') {
+        alert("Opción no válida. Por favor, ingresa 'T' o 'C', en mayúscula o minúscula, para calcular el área.")
+        return
+    }
     
     if (eleccion === 't') {
         let base = parseFloat(prompt("Ingresa la base del triángulo:"))
@@ -100,17 +102,25 @@ function calcularArea() {
         } else {
             alert("Por favor, ingresa un valor numérico válido.")
         }
-    } else {
-        alert("Opción no válida. Por favor, ingresa 'T' o 'C', en mayúscula o minúscula, para calcular el área.")
     }
 }
 
 document.querySelector('#b4').addEventListener('click', calcularArea)
 
 function evaluarNota() {
-    let nota = parseFloat(prompt("Ingresa tu nota (formato decimal):"))
+    let notaEntradaOriginal = prompt("Ingresa tu nota (formato decimal):")
 
-    if (!isNaN(nota) && nota >= 0 && nota <= 10) {
+    if (notaEntradaOriginal != null) {
+        let nota = parseFloat(notaEntradaOriginal)
+    
+        if (isNaN(nota)) {
+            alert(`Nota introducida no válida: ${notaEntradaOriginal}`)
+            return
+        } else if( nota < 0 || nota > 10) {
+            alert(`Nota introducida no válida: ${nota}`)
+            return
+        }
+    
         if (nota < 3) {
             alert("No llegas")
         } else if (nota < 5) {
