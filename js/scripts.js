@@ -41,21 +41,34 @@ function calcularAnhos() {
 document.querySelector('#b2').addEventListener('click', calcularAnhos);
 
 function comprobarNumeros() {
-    let numero1 = parseFloat(document.querySelector('input[name="n1"]').value)
-    let numero2 = parseFloat(document.querySelector('input[name="n2"]').value)
-    let numero3 = parseFloat(document.querySelector('input[name="n3"]').value)
+    let str1 = document.querySelector('input[name="n1"]').value
+    let str2 = document.querySelector('input[name="n2"]').value
+    let str3 = document.querySelector('input[name="n3"]').value
+
+    if (str1 && str2 && str3) {
+        let numero1 = Number(str1)
+        let numero2 = Number(str2)
+        let numero3 = Number(str3)
     
-    if (!isNaN(numero1) && !isNaN(numero2) && !isNaN(numero3)) {
-        if (numero1 === numero2 && numero1 === numero3) {
-            alert("Los tres números son iguales.")
-        } else if (numero1 === numero2 || numero1 === numero3 || numero2 === numero3) {
-            alert("Hay dos números iguales.")
+        console.log(typeof(numero1))
+    
+        console.log(numero1, numero2, numero3, typeof(numero1), typeof(numero2), typeof(numero3))
+        
+        if (!isNaN(numero1) && !isNaN(numero2) && !isNaN(numero3)) {
+            if (numero1 === numero2 && numero1 === numero3) {
+                alert("Los tres números son iguales.")
+            } else if (numero1 === numero2 || numero1 === numero3 || numero2 === numero3) {
+                alert("Hay dos números iguales.")
+            } else {
+                alert("Los tres números son distintos.")
+            }
         } else {
-            alert("Los tres números son distintos.")
+            alert("Por favor, ingresa valores numéricos válidos en los tres campos.")
         }
     } else {
-        alert("Por favor, ingresa valores numéricos válidos en los tres campos.")
+        alert("Rellene los tres campos de texto")
     }
+
 }
 
 document.querySelector('#b3').addEventListener('click', comprobarNumeros)
