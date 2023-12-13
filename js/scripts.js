@@ -97,7 +97,7 @@ function calcularArea() {
             alert("Por favor, ingresa un valor numérico válido.")
         }
     } else {
-        alert("Opción no válida. Por favor, ingresa 'T' o 'C' para calcular el área.")
+        alert("Opción no válida. Por favor, ingresa 'T' o 'C', en mayúscula o minúscula, para calcular el área.")
     }
 }
 
