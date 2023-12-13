@@ -66,7 +66,7 @@ function comprobarNumeros() {
             alert("Por favor, ingresa valores numéricos válidos en los tres campos.")
         }
     } else {
-        alert("Rellene los tres campos de texto")
+        alert("Por favor, Rellena los tres campos de texto")
     }
 
 }
@@ -116,8 +116,6 @@ function evaluarNota() {
         } else {
             alert("Very Well")
         }
-    } else {
-        alert("Por favor, ingresa una nota numérica válida entre 0 y 10.")
     }
 }
 
