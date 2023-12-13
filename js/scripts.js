@@ -1,3 +1,7 @@
+document.querySelector('form').addEventListener('submit', function (event) {
+    event.preventDefault()
+})
+
 function calcularDivision() {
     let dividendo = parseInt(document.querySelector('input[name="op1"]').value)
     let divisor = parseInt(document.querySelector('input[name="op2"]').value)
