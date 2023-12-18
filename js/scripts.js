@@ -8,24 +8,24 @@ function esDivisionExacta(dividendo, divisor) {
         alert("Por favor, ingresa números enteros válidos.")
         return
     }
+
+    if (divisor === 0) {
+        throw new Error(`No se puede dividir por cero`)
+    }
     
-    if (divisor !== 0) {
-        let resultadoDivision = dividendo / divisor
-        let resto = dividendo % divisor
-    
-        if (resto === 0) {
-            alert(`El resultado de la división es ${resultadoDivision} y esta es exacta`)
-        } else {
-            alert(`El resultado de la división es ${resultadoDivision} y esta no es exacta`)
-        }
+    let resultadoDivision = dividendo / divisor
+    let resto = dividendo % divisor
+
+    if (resto === 0) {
+        alert(`El resultado de la división es ${resultadoDivision} y esta es exacta`)
     } else {
-        alert("No se puede dividir por cero.")
+        alert(`El resultado de la división es ${resultadoDivision} y esta no es exacta`)
     }
 }
 
 function calcularDivision() {
-    let dividendo = parseInt(document.querySelector('input[name="op1"]').value)
-    let divisor = parseInt(document.querySelector('input[name="op2"]').value)
+    let dividendo = parseFloat(document.querySelector('input[name="op1"]').value)
+    let divisor = parseFloat(document.querySelector('input[name="op2"]').value)
 
     esDivisionExacta(dividendo, divisor)
     
