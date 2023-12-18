@@ -81,7 +81,7 @@ function comprobarNumeros() {
             alert("Los tres números son distintos.")
         }
     } else {
-        alert("Por favor, ingresa valores numéricos válidos en los tres campos.")
+        alert("Por favor, ingresa números en los tres campos.")
     }
 }
 
