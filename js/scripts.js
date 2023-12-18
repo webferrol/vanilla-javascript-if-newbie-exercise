@@ -130,7 +130,7 @@ function evaluarNota() {
             alert(`Nota introducida no válida: ${notaEntradaOriginal}`)
             return
         } else if( nota < 0 || nota > 10) {
-            alert(`Nota introducida no válida: ${nota}`)
+            alert(`La nota ${nota} no es válida porque no está entre 0 y 10`)
             return
         }
     
