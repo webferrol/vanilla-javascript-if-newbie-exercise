@@ -10,9 +10,11 @@ function calcularDivision() {
         alert("Por favor, ingresa números enteros válidos.")
         return
     }
+
     if (divisor !== 0) {
         let resultadoDivision = dividendo / divisor
         let resto = dividendo % divisor
+
         if (resto === 0) {
             alert(`El resultado de la división es ${resultadoDivision} y esta es exacta`)
         } else {
@@ -83,7 +85,7 @@ document.querySelector('#b3').addEventListener('click', comprobarNumeros)
 function calcularArea() {
     let eleccion = prompt("¿Quieres calcular el área de un triángulo (T) o un círculo (C)?").toLowerCase()
 
-    if(eleccion !== 't' && eleccion !== 'c') {
+    if (eleccion !== 't' && eleccion !== 'c') {
         alert("Opción no válida. Por favor, ingresa 'T' o 'C', en mayúscula o minúscula, para calcular el área.")
         return
     }
