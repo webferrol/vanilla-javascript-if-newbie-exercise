@@ -34,6 +34,11 @@ function calcularAnhos() {
         return
     }
 
+    if (anhoActual !== new Date().getFullYear) {
+        alert("Por favor, introduzca el año actual")
+        return
+    }
+
     if (anhoCualquiera > anhoActual) {
         alert("Faltan " + (anhoCualquiera - anhoActual) + " años para llegar a ese año.")
     } else if (anhoCualquiera < anhoActual) {
