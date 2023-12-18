@@ -2,19 +2,17 @@ document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault()
 })
 
-function calcularDivision() {
-    let dividendo = parseInt(document.querySelector('input[name="op1"]').value)
-    let divisor = parseInt(document.querySelector('input[name="op2"]').value)
+function esDivisionExacta(dividendo, divisor) {
     
     if (isNaN(dividendo) || isNaN(divisor)) {
         alert("Por favor, ingresa números enteros válidos.")
         return
     }
-
+    
     if (divisor !== 0) {
         let resultadoDivision = dividendo / divisor
         let resto = dividendo % divisor
-
+    
         if (resto === 0) {
             alert(`El resultado de la división es ${resultadoDivision} y esta es exacta`)
         } else {
@@ -23,6 +21,14 @@ function calcularDivision() {
     } else {
         alert("No se puede dividir por cero.")
     }
+}
+
+function calcularDivision() {
+    let dividendo = parseInt(document.querySelector('input[name="op1"]').value)
+    let divisor = parseInt(document.querySelector('input[name="op2"]').value)
+
+    esDivisionExacta(dividendo, divisor)
+    
 }
 
 document.querySelector('#b1').addEventListener('click', calcularDivision)
