@@ -48,10 +48,13 @@ function calcularAnhos() {
         return
     }
 
-    if (anhoCualquiera > anhoActual) {
-        alert("Faltan " + (anhoCualquiera - anhoActual) + " años para llegar a ese año.")
-    } else if (anhoCualquiera < anhoActual) {
-        alert("Han pasado " + (anhoActual - anhoCualquiera) + " años desde ese año.")
+    const diferencia = anhoActual - anhoCualquiera
+    const diferenciaAbsoluta = Math.abs(diferencia)
+
+    if (diferencia < 0) {
+        alert("Faltan " + diferenciaAbsoluta + " años para llegar a ese año.")
+    } else if (diferencia > 0) {
+        alert("Han pasado " + diferenciaAbsoluta + " años desde ese año.")
     } else {
         alert("Los años son iguales.")
     }
