@@ -1,10 +1,12 @@
+import { esNumero } from './functions.js'
+
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault()
 })
 
 function esDivisionExacta(dividendo, divisor) {
     
-    if (isNaN(dividendo) || isNaN(divisor)) {
+    if (!esNumero(dividendo) || !esNumero(divisor)) {
         alert("Por favor, ingresa números enteros válidos.")
         return
     }
@@ -28,22 +30,21 @@ function calcularDivision() {
     let divisor = parseFloat(document.querySelector('input[name="op2"]').value)
 
     esDivisionExacta(dividendo, divisor)
-    
 }
 
 document.querySelector('#b1').addEventListener('click', calcularDivision)
 
-function calcularAnhos() {
-    let anhoActual = parseInt(document.querySelector('input[name="a1"]').value)
-    let anhoCualquiera = parseInt(document.querySelector('#anhoCualquiera').value)
-    
-    if (isNaN(anhoActual) || isNaN(anhoCualquiera)) {
-        alert("Por favor, ingresa años válidos.")
-        return
-    }
+const controlAnhoActual = document.querySelector('input[name="a1"]')
+controlAnhoActual.value = new Date().getFullYear()
+controlAnhoActual.disabled = true
 
-    if (anhoActual !== new Date().getFullYear) {
-        alert("Por favor, introduzca el año actual")
+function calcularAnhos() {
+    let anhoActual = parseFloat(controlAnhoActual.value)
+    let anhoCualquiera = parseFloat(document.querySelector('#anhoCualquiera').value)
+   
+    console.log(anhoActual, anhoCualquiera)
+    if (!esNumero(anhoActual) || !esNumero(anhoCualquiera)) {
+        alert("Por favor, ingresa años válidos.")
         return
     }
 
@@ -72,7 +73,10 @@ function comprobarNumeros() {
     let numero2 = Number(str2)
     let numero3 = Number(str3)
     
-    if (!isNaN(numero1) && !isNaN(numero2) && !isNaN(numero3)) {
+    if (!esNumero(numero1) || !esNumero(numero2) || !esNumero(numero3)) {
+        alert("Por favor, ingresa números en los tres campos.")
+        return
+    } else {
         if (numero1 === numero2 && numero1 === numero3) {
             alert("Los tres números son iguales.")
         } else if (numero1 === numero2 || numero1 === numero3 || numero2 === numero3) {
@@ -80,8 +84,6 @@ function comprobarNumeros() {
         } else {
             alert("Los tres números son distintos.")
         }
-    } else {
-        alert("Por favor, ingresa números en los tres campos.")
     }
 }
 
@@ -100,20 +102,20 @@ function calcularArea() {
         let base = parseFloat(prompt("Ingresa la base del triángulo:"))
         let altura = parseFloat(prompt("Ingresa la altura del triángulo:"))
         
-        if (!isNaN(base) && !isNaN(altura)) {
+        if (!esNumero(base) || !esNumero(altura)) {
+            alert("Por favor, ingresa valores numéricos válidos.")
+        } else {
             let areaTriangulo = 0.5 * base * altura
             alert("El área del triángulo es: " + areaTriangulo)
-        } else {
-            alert("Por favor, ingresa valores numéricos válidos.")
         }
     } else if (eleccion === 'c') {
         let radio = parseFloat(prompt("Ingresa el radio del círculo:"))
         
-        if (!isNaN(radio)) {
+        if (!esNumero(radio)) {
+            alert("Por favor, ingresa un valor numérico válido.")
+        } else {
             let areaCirculo = Math.PI * Math.pow(radio, 2)
             alert("El área del círculo es: " + areaCirculo)
-        } else {
-            alert("Por favor, ingresa un valor numérico válido.")
         }
     }
 }
@@ -126,7 +128,7 @@ function evaluarNota() {
     if (notaEntradaOriginal != null) {
         let nota = parseFloat(notaEntradaOriginal)
     
-        if (isNaN(nota)) {
+        if (!esNumero(nota)) {
             alert(`${notaEntradaOriginal} no es una nota válida porque no es un número`)
             return
         } else if( nota < 0 || nota > 10) {
