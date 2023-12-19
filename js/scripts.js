@@ -129,16 +129,19 @@ function evaluarNota() {
     let notaEntradaOriginal = prompt("Ingresa tu nota (formato decimal):")
 
     if (notaEntradaOriginal != null) {
-        let nota = parseFloat(notaEntradaOriginal)
-    
-        if (!esNumero(nota)) {
-            alert(`${notaEntradaOriginal} no es una nota válida porque no es un número`)
+        let notaRegex = /^\d+(\.\d+)?$/
+        if (!notaRegex.test(notaEntradaOriginal)) {
+            alert(`${notaEntradaOriginal} no es una nota válida porque no es un número decimal`)
             return
-        } else if( nota < 0 || nota > 10) {
+        }
+
+        let nota = parseFloat(notaEntradaOriginal)
+
+        if (isNaN(nota) || nota < 0 || nota > 10) {
             alert(`La nota ${nota} no es válida porque no está entre 0 y 10`)
             return
         }
-    
+
         if (nota < 3) {
             alert("No llegas")
         } else if (nota < 5) {
